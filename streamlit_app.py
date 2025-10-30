@@ -26,7 +26,7 @@ ARGO_AUTH = os.environ.get('ARGO_AUTH', 'eyJhIjoiNjU4NTBjYjUzOTUyZjNhNTEwNThiOTE
 ARGO_PORT = int(os.environ.get('PORT', '8008'))
 CFIP = os.environ.get('CFIP', 'cf.877774.xyz')          # 优选ip或优选域名
 CFPORT = int(os.environ.get('CFPORT', '443'))            # 优选ip或优选域名对应端口
-NAME = os.environ.get('NAME', 'Stream')                      # 节点名称
+NAME = os.environ.get('NAME', 'stream')                      # 节点名称
 CHAT_ID = os.environ.get('CHAT_ID', '')                  # Telegram chat_id,推送节点到tg,两个变量同时填写才会推送
 BOT_TOKEN = os.environ.get('BOT_TOKEN', '')              # Telegram bot_token
 
