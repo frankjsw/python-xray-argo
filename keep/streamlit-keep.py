@@ -18,7 +18,7 @@ class StreamlitAppWaker:
     """
     
     # 配置class类常量
-    APP_URL = os.environ.get("STREAMLIT_APP_URL", "https://python-xray-argo-jygu9rnfy8f54srswfudxz.streamlit.app/")
+    APP_URL = os.environ.get("STREAMLIT_APP_URL", "")
     INITIAL_WAIT_TIME = 10  # 网站初始加载等待时间
     POST_CLICK_WAIT_TIME = 20  # 点击唤醒按钮后等待时间
     BUTTON_TEXT = "Yes, get this app back up!"
