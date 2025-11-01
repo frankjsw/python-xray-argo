@@ -42,7 +42,13 @@ jobs:
           ls -al
           python -m pip install --upgrade pip
           pip install -r keep/requirements.txt
-
+          
+      - name: 🧭 调试目录结构
+        run: |
+          echo "当前路径：$(pwd)"
+          echo "=== 列出仓库所有文件 ==="
+          find . -maxdepth 3 -type f
+          
       - name: 🚀 执行 Weirdhost 唤醒脚本
         working-directory: ${{ github.workspace }}
         env:
