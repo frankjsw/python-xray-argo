@@ -40,9 +40,16 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r keep/requirements.txt
 
+      # - name: 执行 Weirdhost 唤醒脚本
+      #   env:
+      #     WEIRDHOST_APP_URL: ${{ secrets.WEIRDHOST_APP_URL }}
+      #   run: |
+      #     python keep/weirdhost-keep.py
+
       - name: 执行 Weirdhost 唤醒脚本
+        working-directory: ${{ github.workspace }}
         env:
           WEIRDHOST_APP_URL: ${{ secrets.WEIRDHOST_APP_URL }}
         run: |
-          python keep/weirdhost-keep.py
+            python keep/weirdhost-keep.py
 
