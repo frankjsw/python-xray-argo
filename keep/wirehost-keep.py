@@ -12,13 +12,13 @@ from selenium.common.exceptions import TimeoutException, NoSuchElementException,
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
-class KatabumpAppWaker:
+class WeirdhostAppWaker:
     """
-    针对Katabump应用的自动唤醒脚本（修改为定位并点击包含 class Button___StyledSpan-sc-1qu1gou-2 且文本 시간추가 的按钮）
+    针对Weirdhost应用的自动唤醒脚本（修改为定位并点击包含 class Button___StyledSpan-sc-1qu1gou-2 且文本 시간추가 的按钮）
     """
     
     # 配置class类常量
-    APP_URL = os.environ.get("KATABUMP_APP_URL", "")
+    APP_URL = os.environ.get("WEIRDHOST_APP_URL", "")
     INITIAL_WAIT_TIME = 10  # 网站初始加载等待时间
     POST_CLICK_WAIT_TIME = 20  # 点击唤醒按钮后等待时间
 
@@ -164,7 +164,7 @@ class KatabumpAppWaker:
     def wakeup_app(self):
         """执行唤醒流程"""
         if not self.APP_URL:
-            raise Exception("⚠️ 环境变量 KATABUMP_APP_URL 未配置。")
+            raise Exception("⚠️ 环境变量 WEIRDHOST_APP_URL 未配置。")
             
         logger.info(f"👉 访问应用URL: {self.APP_URL}")
         self.driver.get(self.APP_URL)
@@ -223,7 +223,7 @@ class KatabumpAppWaker:
         result = "未知错误"
         success = False
         try:
-            logger.info("🚀 Katabump应用唤醒脚本开始执行...")
+            logger.info("🚀 Weirdhost应用唤醒脚本开始执行...")
             success, result = self.wakeup_app() 
             return success, result
                 
@@ -239,12 +239,12 @@ class KatabumpAppWaker:
 
 def main():
     """主函数"""
-    app_url = os.environ.get("KATABUMP_APP_URL", "未配置，将使用默认值(空)")
+    app_url = os.environ.get("WEIRDHOST_APP_URL", "未配置，将使用默认值(空)")
     logger.info(f"配置的应用 URL: {app_url}")
     
     waker = None
     try:
-        waker = KatabumpAppWaker()
+        waker = WeirdhostAppWaker()
         success, result = waker.run()
         logger.info(f"🚀 最终结果: {result}")
         
